@@ -5,9 +5,18 @@ const routes: Routes = [
   { path: '', redirectTo: 'places', pathMatch: 'full' },
   { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
   {
-    path: 'places',
-    loadChildren: () => import('./places/places.module').then( m => m.PlacesPageModule)
-  },
+    path: 'places',   /** Ruta Principal */
+    children: [       /** Rutas Hijas */
+      {
+        path: '',     /** Path: /places */
+        loadChildren: () => import('./places/places.module').then( m => m.PlacesPageModule)
+      },
+      {
+        path: ':id',  /** Path: /places/:id donde 'id' es la parametrización de un dato en la ruta */
+        loadChildren: () => import( './places/place-detail/place-detail.module' ) .then( m => m .PlaceDetailPageModule )
+      }
+    ]
+  }
 ];
 
 @NgModule({
