@@ -34,7 +34,11 @@ export class PlacesPage implements OnInit {
 
   addNewPlace() {
     console .log( 'Works!' );
-    this ._router.navigate( [ '/place-new' ] );   // Redirecciona
+    this ._router .navigate( [ '/place-new' ] );   // Redirecciona
+  }
+
+  goToHomePage() {
+    this ._router .navigate( [ '/home' ] );        // Redirecciona
   }
 
 }
