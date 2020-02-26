@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { PlaceAddPageModule } from './places/place-add/place-add.module';
 
 const routes: Routes = [
   { path: '', redirectTo: 'places', pathMatch: 'full' },
@@ -13,10 +14,11 @@ const routes: Routes = [
       },
       {
         path: ':id',  /** Path: /places/:id donde 'id' es la parametrización de un dato en la ruta */
-        loadChildren: () => import( './places/place-detail/place-detail.module' ) .then( m => m .PlaceDetailPageModule )
+        loadChildren: () => import( './places/place-detail/place-detail.module' ) .then( m => m .PlaceDetailPageModule )        /** Lazy Loading: Ir Importanto a medida que se van requiriendo */
       }
     ]
-  }
+  },
+  { path: 'place-new', loadChildren: () => import( './places/place-add/place-add.module' ) .then( m => m .PlaceAddPageModule ) }
 ];
 
 @NgModule({
