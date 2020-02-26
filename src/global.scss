@@ -24,3 +24,18 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+/** Agregadas */
+.place {
+    color: rgb( 61, 194, 255 );
+}
+.city {
+    font-size: 1rem;
+}
+.comment {
+    color: gray;
+    font-style: italic;
+}
+.no-comments {
+    color: #3880ff;
+}
