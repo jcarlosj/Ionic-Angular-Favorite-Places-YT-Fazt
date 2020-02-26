@@ -16,18 +16,18 @@
           <ion-card-content>
             <ion-item class="ion-margin-vertical">
               <ion-label position="floating">Name place</ion-label>
-              <ion-input id="name-place" type="text"></ion-input>
+              <ion-input #place id="name-place" type="text"></ion-input>
             </ion-item>
             <ion-item class="ion-margin-vertical">
               <ion-label position="floating">Name city</ion-label>
-              <ion-input id="name-city" type="text"></ion-input>
+              <ion-input #city id="name-city" type="text"></ion-input>
             </ion-item>
             <ion-item class="ion-margin-vertical">
               <ion-label position="floating">Image URL</ion-label>
-              <ion-input id="name-city" type="text"></ion-input>
+              <ion-input #url id="name-city" type="text"></ion-input>
             </ion-item>
   
-            <ion-button id="btn-save">
+            <ion-button id="btn-save" (click)="saveNewPlace( city, place, url )">
               <ion-icon name="add-circle" slot="start"></ion-icon>
               Save
             </ion-button>

@@ -20,6 +20,11 @@ export class PlacesService {
     return [ ...this .places ];   // Devuelve una Copia del Arreglo original
   }
 
+  /** Obtener cantidad de registros */
+  getQuantityRecords () {
+    return this .places .length;
+  }
+
   /** Busca por ID y retorna un objeto */
   getById( id: number ) : Place {
     return {
