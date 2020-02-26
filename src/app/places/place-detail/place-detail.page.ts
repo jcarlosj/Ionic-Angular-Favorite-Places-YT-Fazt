@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';               // Router
+import { ActivatedRoute, Router } from '@angular/router';               // Router
 import { PlacesService } from '../../services/places.service';  // Service
 import { Place } from '../../services/place.model';
 
@@ -15,7 +15,8 @@ export class PlaceDetailPage implements OnInit {
 
   constructor( 
     private _activatedRoute: ActivatedRoute,
-    private _placesService: PlacesService
+    private _placesService: PlacesService,
+    private _router: Router
   ) { }
 
   ngOnInit() {
@@ -26,6 +27,13 @@ export class PlaceDetailPage implements OnInit {
       this .place = this ._placesService .getById( Number( id ) );
       console .log( 'Data', this .place );
     });
+  }
+
+  /** Elimina el lugar */
+  deletePlace() {
+    console .log( 'Elimina', this .place );
+    this ._placesService .delete( this .place.id );
+    this ._router .navigate( [ '/places' ] );         // Redirecciona
   }
 
 }
