@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PlacesService } from '../services/places.service';
+import { Place } from '../services/place.model';
 
 @Component({
   selector: 'app-places',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlacesPage implements OnInit {
 
-  constructor() { }
+  /** Atributes */
+  public places: Place[] = [];
+
+  constructor( private _placesService: PlacesService ) { }
 
   ngOnInit() {
+    this.places = this ._placesService .getAll();
   }
 
 }
