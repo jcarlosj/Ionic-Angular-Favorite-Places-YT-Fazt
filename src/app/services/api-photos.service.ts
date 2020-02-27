@@ -9,7 +9,7 @@ export class ApiPhotosService {
   constructor( private _httpClient: HttpClient ) { }
 
   getPhotos() {
-    return this ._httpClient .get( 'https://jsonplaceholder.typicode.com/photos?_limit=20' );
+    return this ._httpClient .get<any>( 'https://jsonplaceholder.typicode.com/photos?_limit=20' );
   }
 
 }

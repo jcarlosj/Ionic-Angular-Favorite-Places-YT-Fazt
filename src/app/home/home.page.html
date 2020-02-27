@@ -17,7 +17,16 @@
   </ion-header>
 
   <div id="container">
-    <strong>¿Cuáles son tus lugares favoritos?</strong>
-    <p>Comparte tu experiencia con otros</p>
+    <ion-list>
+      
+      <ion-card *ngFor="let photo of photos">
+        <img [src]="photo .thumbnailUrl" [alt]="photo .title" />
+        <ion-card-content>
+          <p>{{ photo .title }}</p>
+          <a target="_blank" [href]="photo. url">{{ photo .url }}</a>
+        </ion-card-content>
+      </ion-card>
+      
+    </ion-list>
   </div>
 </ion-content>

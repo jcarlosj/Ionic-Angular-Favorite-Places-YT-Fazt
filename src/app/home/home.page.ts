@@ -8,12 +8,16 @@ import { ApiPhotosService } from '../services/api-photos.service';
 })
 export class HomePage implements OnInit {
 
+  /** Atributes */
+  photos : Object[] = [];
+
   constructor( private _apiPhotosService: ApiPhotosService ) {}
 
   ngOnInit() {
     this ._apiPhotosService .getPhotos()
       .subscribe( data => {
-        console .log( 'API Data', data );
+        this .photos = data;
+        console .log( 'API Data', this .photos );
       });
   }
 
