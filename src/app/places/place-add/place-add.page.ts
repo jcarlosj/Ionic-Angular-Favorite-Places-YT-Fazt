@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Place } from '../../services/place.model';             // Model
 import { PlacesService } from '../../services/places.service';  // Service
 import { Router } from '@angular/router';
+import { IonInput } from '@ionic/angular';
 
 @Component({
   selector: 'app-place-add',
@@ -18,7 +19,7 @@ export class PlaceAddPage implements OnInit {
   ngOnInit() {
   }
 
-  saveNewPlace( city: HTMLInputElement, place: HTMLInputElement, url: HTMLInputElement ) {
+  saveNewPlace( city: IonInput, place: IonInput, url: IonInput ) {
     
     console .group( 'Save' );
     console .log( city .value, '\n', place .value, '\n', url .value );
@@ -27,9 +28,9 @@ export class PlaceAddPage implements OnInit {
     /** Inserta datos en objeto tipo Place */
     const newPlace : Place = {
       id: this ._placesService .getQuantityRecords() + 1,
-      city: city .value,
-      name: place .value,
-      urlImage: url .value,
+      city: city .value .toString(),
+      name: place .value .toString(),
+      urlImage: url .value .toString(),
       comments: []
     };
 
